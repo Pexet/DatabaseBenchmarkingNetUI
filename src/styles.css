@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  width: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f7f8 !important;
+
+  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+}
+
+button {
+    background-color: transparent; /* Green */
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.white-icon {
+    color: white;
+}
+
+.white-icon svg {
+    fill: white;
+}

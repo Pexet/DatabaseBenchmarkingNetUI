@@ -1,0 +1,25 @@
+app-header {
+    height: 50px;
+}
+
+.content {
+    display: block;
+    margin: auto;
+    width: 50%;
+    border: 1px solid gray;
+  }
+
+table {
+    width: 60%;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: white;
+}
+
+.filter {
+    border: 1px solid gray;
+}

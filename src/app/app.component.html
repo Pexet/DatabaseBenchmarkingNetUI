@@ -1,0 +1,135 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="filters">
+    <mat-form-field>
+      <mat-label>Runtime</mat-label>
+      <mat-select (selectionChange)="onRuntimeSelectionChanged($event.value)">
+        <mat-option>None</mat-option>
+        @for (runtime of runtimes; track runtime) {
+        <mat-option [value]="runtime">{{ runtime }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Database</mat-label>
+      <mat-select (selectionChange)="onDatabaseSelectionChanged($event.value)">
+        <mat-option>None</mat-option>
+        @for (database of databases; track database) {
+        <mat-option [value]="database">{{ database }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Framework</mat-label>
+      <mat-select (selectionChange)="onFrameworkSelectionChanged($event.value)">
+        <mat-option>None</mat-option>
+        @for (framework of frameworks; track framework) {
+        <mat-option [value]="framework">{{ framework }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Method</mat-label>
+      <mat-select (selectionChange)="onMethodSelectionChanged($event.value)">
+        <mat-option>None</mat-option>
+        @for (method of methods; track method) {
+        <mat-option [value]="method">{{ method }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Batch</mat-label>
+      <mat-select (selectionChange)="onBatchSelectionChanged($event.value)">
+        <mat-option>None</mat-option>
+        @for (batch of batches; track batch) {
+        <mat-option [value]="batch">{{ batch }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <table
+    mat-table
+    matSort
+    matSortDisableClear="true"
+    matSortDirection="desc"
+    matSortStart="desc"
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="database">
+      <th
+        mat-header-cell
+        mat-sort-header
+        sortActionDescription="Sort by database"
+        *matHeaderCellDef
+      >
+        database
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.database }}</td>
+    </ng-container>
+    <ng-container matColumnDef="runtime">
+      <th
+        mat-header-cell
+        mat-sort-header
+        sortActionDescription="Sort by runtime"
+        *matHeaderCellDef
+      >
+        runtime
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.runtime }}</td>
+    </ng-container>
+    <ng-container matColumnDef="methodName">
+      <th
+        mat-header-cell
+        mat-sort-header
+        sortActionDescription="Sort by methodName"
+        *matHeaderCellDef
+      >
+        methodName
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.methodName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="operationsSec">
+      <th
+        mat-header-cell
+        mat-sort-header
+        sortActionDescription="Sort by operationsSec"
+        *matHeaderCellDef
+      >
+        operationsSec
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.operationsSec }}</td>
+    </ng-container>
+    <ng-container matColumnDef="framework">
+      <th
+        mat-header-cell
+        mat-sort-header
+        sortActionDescription="Sort by framework"
+        *matHeaderCellDef
+      >
+        framework
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.framework }}</td>
+    </ng-container>
+    <ng-container matColumnDef="batch">
+      <th
+        mat-header-cell
+        mat-sort-header
+        sortActionDescription="Sort by batch"
+        *matHeaderCellDef
+      >
+        batch
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.batch }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
